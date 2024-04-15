@@ -1,0 +1,649 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto&family=Lato&family=Ubuntu&family=Protest+Guerrilla&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@font-face {
+    font-family: Matrix;
+    src: url(Matrix-MZ4P.ttf);
+}
+@font-face {
+    font-family: Mokoto;
+    src: url(Mokoto\ Demo.ttf);
+}
+
+:root {
+    --glow-color: hsl(186, 100%, 69%);
+    --lime-color: hsl(75, 100%, 50%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+.glowing-btn{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border-radius: 0.15cm solid var(--glow-color);
+    border-radius: 1.45em;
+    background: none;
+    perspective: 2em;
+    font-size: 40px;
+
+    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color) ;
+    -moz-box-shadow: inset 0px 0px 0.5px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+}
+
+.glowing-btn img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* This will maintain the aspect ratio */
+}
+
+.faulty-letter {
+    opacity: 0.5;
+    animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: var(--glow-color);
+    pointer-events: none;
+    color: var(--glow-color);
+}
+
+.glowing-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    animation: none;
+}
+
+.glowing-btn:hover.glowing-txt {
+    animation: none;
+}
+
+.glowing-btn:hover.faulty-letter {
+    animation: none;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.glowing-btn:hover::before {
+    filter: blur(1.5em);
+    opacity: 1;
+    color: var(--glow-color);
+}
+
+.glowing-btn:hover::after {
+    opacity: 1;
+}
+
+.glowing-btn1 {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border-radius: 0.15cm solid var(--glow-color);
+    border-radius: 1.45em;
+    background: none;
+    perspective: 2em;
+    font-family: 'Mokoto', monospace;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.timer h1 {
+    font-size: 24px; 
+    color: var(--lime-color); 
+    text-align: center; 
+    margin-bottom: 20px; 
+    }
+
+.timer .countdown {
+    font-size: 20px; 
+    color: var(--lime-color); 
+    background-color: #000; 
+    padding: 10px; 
+    border-radius: 5px; 
+    text-align: center; 
+    font-weight: bold; 
+}
+
+.glowing-btn2 {
+    position: absolute;
+    top: 60%;
+    left: 07%;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.2em 0.6em;
+    border-radius: 0.15cm solid var(--glow-color);
+    border-radius: 1.45em;
+    background: none;
+    perspective: 2em;
+    font-family: "Acme", sans-serif;
+    font-size: calc(0.7em + 1vw);
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color) ;
+    -moz-box-shadow: inset 0px 0px 0.5px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+}
+
+.glowing-btn2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: var(--glow-color);
+    pointer-events: none;
+    color: var(--glow-color);
+}
+
+.glowing-btn2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+
+.glowing-btn2:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    animation: none;
+}
+
+.glowing-btn2:hover.glowing-txt {
+    animation: none;
+}
+
+.glowing-btn2:hover.faulty-letter {
+    animation: none;
+    text-shadow: none;
+    opacity: 1;
+}2
+
+.glowing-btn2:hover::before {
+    filter: blur(1.5em);
+    opacity: 1;
+    color: var(--glow-color);
+}
+
+.glowing-btn2:hover::after {
+    opacity: 1;
+}
+
+.glowing-btn3 {
+    position: absolute;
+    color: var(--glow-color);
+    cursor: pointer;
+    border-radius: 0.15cm solid var(--glow-color);
+    border-radius: 1.45em;
+    background: none;
+    perspective: 2em;
+    font-size: calc(0.7em + 1vw);
+    font-family: "Acme", sans-serif;
+    font-weight: 700;
+    padding: 0.2em 0.6em;
+    align-items: center;
+    left: 52.5%;
+    top: 74%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 1px;
+
+    
+    
+    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color) ;
+    -moz-box-shadow: inset 0px 0px 0.5px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+}
+
+.glowing-btn3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: var(--glow-color);
+    pointer-events: none;
+    color: var(--glow-color);
+}
+
+.glowing-btn3::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+
+.glowing-btn3:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    animation: none;
+}
+
+.glowing-btn3:hover.glowing-txt {
+    animation: none;
+}
+
+.glowing-btn3:hover.faulty-letter {
+    animation: none;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.glowing-btn3:hover::before {
+    filter: blur(1.5em);
+    opacity: 1;
+    color: var(--glow-color);
+}
+
+.glowing-btn3:hover::after {
+    opacity: 1;
+}
+
+.glowing-btn4 {
+    position: absolute;
+    top: 70px;
+    left: 20%;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border-radius: 0.15cm solid var(--glow-color);
+    border-radius: 1.45em;
+    background: none;
+    perspective: 2em;
+    font-family: 'Mokoto', monospace;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 7px;
+    
+
+    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color) ;
+    -moz-box-shadow: inset 0px 0px 0.5px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+}
+
+.glowing-btn4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: var(--glow-color);
+    pointer-events: none;
+    color: var(--glow-color);
+}
+
+.glowing-btn4::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+
+.glowing-btn4:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    animation: none;
+}
+
+.glowing-btn4:hover.glowing-txt {
+    animation: none;
+}
+
+.glowing-btn4:hover.faulty-letter {
+    animation: none;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.glowing-btn4:hover::before {
+    filter: blur(1.5em);
+    opacity: 1;
+    color: var(--glow-color);
+}
+
+.glowing-btn4:hover::after {
+    opacity: 1;
+}
+
+.members {
+    position: absolute;
+    top: 100px;
+    left: 25%;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border-radius: 0.15cm solid var(--glow-color);
+    border-radius: 1.45em;
+    background: none;
+    perspective: 2em;
+    font-family: 'Mokoto', monospace;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+
+
+@keyframes faulty-flicker {
+    0% {
+        opacity: 0.1;
+    }
+    2% {
+        opacity: 0.1;
+    }
+    4% {
+        opacity: 0.5;
+    }
+    19% {
+        opacity: 0.5;
+    }
+    21% {
+        opacity: 0.1;
+    }
+    23% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    83% {
+        opacity: 0.4;
+    }
+    87% {
+        opacity: 1;
+    }
+}
+
+@keyframes text-flicker {
+    0% {
+        opacity: 0.1;
+    }
+    2% {
+        opacity: 1;
+    }
+    8% {
+        opacity: 0.1;
+    }
+    9% {
+        opacity: 1;
+    }
+    12% {
+        opacity: 0.1;
+    }
+    20% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.7;
+    }
+    72% {
+        opacity: 0.2;
+    }
+    77% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes border-flicker {
+    0% {
+        opacity: 0.1;
+    }
+    2% {
+        opacity: 1;
+    }
+    4% {
+        opacity: 0.1;
+    }
+    8% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .glowing-btn {
+        /* Adjust font size and padding for smaller devices */
+        font-size: 30px;
+        padding: 20px;
+        font-style: normal;
+        left: 10%; /* Adjust positioning for smaller screens */
+    }
+    .glowing-btn img {
+        width: 40px; /* Adjust the width as needed */
+        height: auto; /* This will maintain the aspect ratio */
+    }
+    .glowing-btn1 {
+        font-size: 30px;
+        padding: 20px;
+        font-style: normal;
+        left: 10%;
+    }
+    .glowing-btn2 {
+        font-size: 30px;
+        padding: 20px;
+        font-style: normal;
+        left: 10%;
+    }
+    .glowing-btn3 {
+        font-size: 30px;
+        padding: 20px;
+        font-style: normal;
+        left: 10%;
+    }
+    .glowing-btn4 {
+        font-size: 30px;
+        padding: 20px;
+        font-style: normal;
+        left: 10%;
+    }
+    .members {
+        font-size: 30px;
+        padding: 20px;
+        font-style: normal;
+        left: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .glowing-btn {
+        /* Further adjustments for very small devices */
+        font-size: 16px;
+        font-weight: 900;
+        padding: 0.2em 0.6em;
+        font-family:  "Acme", sans-serif;
+        letter-spacing: 02px;
+        flex-direction: column;
+        align-items: center;
+        left: 9%; /* Adjust positioning for smaller screens */
+        top: 10%;
+    }
+    .glowing-btn img {
+        width: 40px;
+        height: auto;
+        align-items: baseline;
+    }
+    .glowing-btn1 {
+        font-size: calc(0.7em + 1vw);
+        font-family: "Acme", sans-serif;
+        padding: 0.2em 0.6em;
+        left: 07%;
+        top: 30%;
+        letter-spacing: 1px;
+    }
+    
+    .timer h1 {
+        font-size: 24px; 
+        color: var(--lime-color); 
+        text-align: center; 
+        margin-bottom: 20px; 
+        }
+
+    .timer .countdown {
+        font-size: 20px; 
+        color: var(--lime-color); 
+        background-color: #000; 
+        padding: 10px; 
+        border-radius: 5px; 
+        text-align: center; 
+        font-weight: bold; 
+    }
+    .glowing-btn2 {
+        font-size: calc(0.7em + 1vw);
+        font-weight: 700;
+        font-family: "Acme", sans-serif;
+        padding: 0.2em 0.6em;
+        left: 07%;
+        top: 76%;
+        letter-spacing: 1px;
+    }
+    .glowing-btn3 {
+        font-size: calc(0.7em + 1vw);
+        font-family: "Acme", sans-serif;
+        font-weight: 700;
+        padding: 0.2em 0.6em;
+        align-items: center;
+        position: absolute;
+        left: 52.5%;
+        top: 74%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 1px;
+    }
+    .glowing-btn4 {
+        font-size: calc(0.7em + 1vw);
+        font-family: "Acme", sans-serif;
+        font-weight: 700;
+        padding: 0.2em 0.6em;
+        align-items: center;
+        position: absolute;
+        left: calc(60% + 100px); /* Positioned to the right of glowing-btn3 */
+        top: 78%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 1px;
+    }
+    .members {
+        font-size: calc(0.7em + 1vw);
+        color: var(--glow-color);
+        font-family: "Acme", sans-serif;
+        padding: 0.2em 0.6em;
+        left: 07%;
+        top: 85%; /* Adjusted to place below glowing-btn4 */
+        position: relative; /* or 'absolute' depending on your layout */
+        letter-spacing: 1px;
+    }
+}
