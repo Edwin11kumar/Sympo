@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto&family=Lato&family=Ubuntu&family=Protest+Guerrilla&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@font-face {
+    font-family: Matrix;
+    src: url(Matrix-MZ4P.ttf);
+}
+@font-face {
+    font-family: Mokoto;
+    src: url(Mokoto\ Demo.ttf);
+}
+
+:root {
+    --glow-color: hsl(186, 100%, 69%);
+    --lime-color: hsl(75, 100%, 50%);
+    --contrast-color: hsl(255, 100%, 50%);
+    --contrast-color1: hsl(6, 100%, 50%);
+}
+
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+body {
+    background: #000;
+}
+
+/* Starry Background */
+@keyframes moveStars {
+    from {
+        background-position: 0 0, 15px 15px;
+    }
+    to {
+        background-position: 0 100%, 15px calc(15px + 100%);
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    background-image: 
+        radial-gradient(white 0.5px, transparent 0.3px), /* Small distant stars */
+        radial-gradient(white 1px, transparent 0.5px), /* Medium stars */
+        radial-gradient(white 2px, transparent 1px), /* Larger closer stars */
+        radial-gradient(rgba(255, 255, 255, 0.3) 0.5px, transparent 1px), /* Fainter stars */
+        radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 2px); /* Brighter closer stars */
+    background-size: 30px 30px, 50px 50px, 70px 70px, 50px 50px, 70px 70px;
+    background-position: 0 0, 15px 15px, 30px 30px, 45px 45px, 60px 60px;
+    z-index: -1;
+    opacity: 0.3;
+    animation: moveStars 50s ease-out infinite;
+}
+
+.main{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 8rem 0;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle{
+    width: 150px;
+    margin-right: -120px;
+    margin-top: -10vmin;
+    animation: spin linear 15s infinite;
+    justify-content: center;
+    align-items: center;
+    opacity: .8;
+    z-index: -1;
+}
+@keyframes spin{
+    from{transform: rotate(-360deg);}
+    to{transform: rotate(360deg);}
+}
+
+h1 {
+    color: var(--lime-color);
+    margin-top: 3rem;
+    font-family: 'Matrix',monospace;
+    letter-spacing: 3px;
+    font-size: 40px;
+    text-align: center;
+}
+
+h2{
+    color: var(--lime-color);
+    font-size: 4rem;
+    font-family: 'Matrix',monospace;
+    margin-top: -02vmin;
+    padding: 0 2rem;
+    border-radius: 1rem;
+    transition: all .3s ease-out;
+    animation: faderight .3s ease-out, blink linear 5s infinite;
+    animation-duration: 1s;
+    letter-spacing: 7px;
+}
+
+.line{
+    width: 300px;
+    margin-top: -110px;
+    margin-left: 110px;
+    box-shadow: 10px 10px 5;
+    animation: faderight ease-in 1.3s, blink linear 3s infinite;
+}
+
+@keyframes blink{
+    71%{opacity: 1;}
+    73% {opacity: 0;}
+    75% {opacity: 1;}
+    77% {opacity: 0;}
+    80%{opacity: 1;}
+}
+@keyframes faderight{
+    from{opacity: 0; transform: translateX(-30px);}
+    to{opacity: 3; transform: translateX(0px);}
+}
+
+.globe{
+    width: 250px;
+    margin-top: -300px;
+    margin-right: -300px;
+    z-index: -1;
+    opacity: .3;
+    left: 10%;
+}
+.glow{
+    text-shadow: 0px 0px 30px lime;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+.start h1{
+    font-size: 40px;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    top: 70%;
+    left: 25%;
+
+}
+.start p {
+    color: var(--lime-color);
+    font-size: 40px;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    top: 80%;
+    left: 40%;
+}
+
+.countdown {
+    font-size: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 480px) {
+    h1{
+        font-size: 25px;
+        letter-spacing: normal;
+    }
+
+    h2{
+        font-size: 8vmin;
+        margin-top: -0.1vmin;
+    }
+
+    .circle{
+        width: 25vmin;
+        margin-right: -20vmin;
+        margin-top: -6vmin;
+    }
+    .line{
+        width: 40vmin;
+        margin-top: -17vmin;
+        margin-right: 30vmin;
+
+    }
+    .container{
+        height: auto;
+        margin: 5rem 0;
+    }
+    .globe{
+        width: 45vmin;
+        margin-top:-45vmin;
+        margin-right: -40vmin;
+    }
+    .glow:hover {
+        animation: crazyGlowAnimation 1s ease-in-out infinite;
+    }
+    .start h1{
+        font-size: 15px;
+        top: 45%;
+        left: 21%;
+    }
+    .start p {
+        color: var(--lime-color);
+        font-size: 15px;
+        top: 55%;
+        left: 35%;
+    }
+}
